@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<record xmlns="snet-home.org" type="data" mode="textual" interface="C4SNet">
+  <tag label="size">1</tag>
+  <field label="SPDI">(double[20])1,1,2,1,1,1,1,2,1,2,2,2,2,1,2,2,1,1,1,1</field>
+  <field label="I">(double[4])1,1.75,1,1.25</field>
+  <field label="e">(double[4])1,2,2,2</field>
+</record>
+<record xmlns="snet-home.org" type="terminate" />

@@ -1,0 +1,13 @@
+<metadata> <default> <interface value="C4SNet" /> </default> </metadata>
+
+net reach ({<size>, SPDI, I, e} -> {})
+{
+    box init((<size>, SPDI, I, e) -> (<size>, SPDI, I, e, <B>, <C>) | (<found>));
+    /*box presentResult((result) -> (<X>));*/
+    net loop ({<size>, SPDI, I, e, <B>, <C>} | {<found>} -> {})
+    {
+        box reachability((<size>, SPDI, I, e, <B>, <C>, <found>) -> (<size>, SPDI, I, e, <B>, <C>, <found>)/* | (result)*/);
+        box deallocate((<size>, SPDI, I, e, <B>, <C>, <found>) -> (<size>, SPDI, I, e, <B>, <C>) | (<found>)/* | (result)*/);
+    } connect ([| {<size>, SPDI, I, e, <B>, <C>}, {<found>} |] * {<size>, SPDI, I, e, <B>, <C>, <found>} .. reachability .. deallocate) \ {<size>, SPDI, I, e, <B>, <C>}, {<found>};
+}
+connect init .. loop;
